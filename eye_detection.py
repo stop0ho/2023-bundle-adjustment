@@ -55,7 +55,7 @@ for (name, path) in detectorPaths.items():
     detectors[name] = cv2.CascadeClassifier(path)
 
 '''Load Image'''
-image_path = 'img/sample1.jpg'
+image_path = 'img/sample9.jpg'
 
 image = cv2.imread(image_path)
 image = imutils.resize(image, width=900)
@@ -79,6 +79,17 @@ for (fX, fY, fW, fH) in faceRects:
     # 눈 ROI 추출
     eyeRects = detectors["eyes"].detectMultiScale(faceROI, scaleFactor=1.1, minNeighbors=10, minSize=(15, 15),
                                                   flags=cv2.CASCADE_SCALE_IMAGE)
+
+    '''
+    cv2.rectangle(img, pt1, pt2, color[, thickness[, lineType[, shift]]]) -> img
+    - img : 이미지 파일
+    - pt1 : 시작점 좌표 (x, y)
+    - pt2 : 종료점 좌표 (x, y)
+    - color : 색상 (blue, green, red) 0 ~ 255
+    - thickness : 선 두께(default 1)
+    - lineType : 선 종류
+    - shift : fractional bit (default 0)
+    '''
 
     # 눈 bounding box
     for (eX, eY, eW, eH) in eyeRects:
