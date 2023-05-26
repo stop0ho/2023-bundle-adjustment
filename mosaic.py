@@ -89,7 +89,7 @@ for (fX, fY, fW, fH) in faceRects:
     - shift : fractional bit (default 0)
     '''
     mosaic_loc = image[fY:fY + fH, fX:fX + fW]
-    mosaic_loc = cv2.blur(mosaic_loc, (50, 50))
+    mosaic_loc = cv2.GaussianBlur(mosaic_loc, (0, 0), 3)
 
     img_w_mosaic = image
     img_w_mosaic[fY:fY + fH, fX:fX + fW] = mosaic_loc
