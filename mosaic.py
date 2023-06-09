@@ -2,10 +2,17 @@ import matplotlib.pyplot as plt
 import imutils
 import cv2
 import os
+import sys
+
+'''인수 전달 파이썬 카드'''
+def getName(name):
+    global imageName
+    imageName = name
+
+if __name__ == '__main__':
+    getName(sys.argv[1])
 
 '''이미지 확인 function'''
-
-
 def plt_imshow(title='image', img=None, figsize=(5, 5)):
     """이미지 영역 확보"""
     plt.figure(figsize=figsize)
@@ -56,7 +63,8 @@ for (name, path) in detectorPaths.items():
 
 '''Load Image'''
 '''sample1, 4, 7, 8, 9에서만 됨'''
-image_path = 'img/sample10.jpg'
+imageName = 'sample9.jpg'
+image_path = 'img/' + imageName
 
 image = cv2.imread(image_path)
 image = imutils.resize(image, width=900)
