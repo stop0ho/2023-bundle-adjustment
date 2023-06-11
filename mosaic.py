@@ -4,14 +4,6 @@ import cv2
 import os
 import sys
 
-'''인수 전달 파이썬 카드'''
-def getName(name):
-    global imageName
-    imageName = name
-
-if __name__ == '__main__':
-    getName(sys.argv[1])
-
 '''이미지 확인 function'''
 def plt_imshow(title='image', img=None, figsize=(5, 5)):
     """이미지 영역 확보"""
@@ -63,11 +55,11 @@ for (name, path) in detectorPaths.items():
 
 '''Load Image'''
 '''sample1, 4, 7, 8, 9에서만 됨'''
-imageName = 'sample9.jpg'
+imageName = 'sample10.jpg'
 image_path = 'img/' + imageName
 
 image = cv2.imread(image_path)
-image = imutils.resize(image, width=900)
+image =imutils.resize(image, width=900)
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
 '''Face Detection'''
